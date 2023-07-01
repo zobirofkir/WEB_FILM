@@ -1,12 +1,10 @@
-from sqlalchemy import Column, String, Integer, ForeignKey
-from sqlalchemy.orm import relationship
-from data_film import Base, engine
+from sqlalchemy import Column, String, Integer
+from .data_film import Base, engine
 
 class Film(Base):
     __tablename__ = 'film'
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-    category_id = Column(Integer, ForeignKey('category.id'), nullable=False)
     Publication_year = Column(String, nullable=False)
     the_quality = Column(String, nullable=False) 
     Country = Column(String, nullable=False)
@@ -17,7 +15,7 @@ class Film(Base):
     the_show_length = Column(String, nullable=False)
     comment = Column(String, nullable=False)
 
-    category = relationship('Category', back_populates='films')
+
 
 class Publisher(Base):
     __tablename__ = 'publisher'
@@ -47,6 +45,5 @@ class Category(Base):
     Musical = Column(String, nullable=False)
     Western = Column(String, nullable=False)
 
-    films = relationship('Film', back_populates='category')
  
 Base.metadata.create_all(bind=engine)
