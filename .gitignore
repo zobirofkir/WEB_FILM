@@ -1,0 +1,13 @@
+__pycache__
+schemas/__pycache__
+__pycache__/
+WEB_FILM
+WEB_FILM/
+routers/__pycache__
+repository/__pycache__
+Base/__pycache__
+
+Base/db.db
+Base/db
+db
+db.db
